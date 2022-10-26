@@ -1,24 +1,48 @@
-
 public class Supplier {
-  DynamicArray<Product> Products = new DynamicArray<>();
+	
+	private Product[] productArr;
+  
+	//Default constructor
+	public Supplier() {
+	}
 
+	//Full-arg constructor
+	public Supplier(Product[] productArr) {
+		this.productArr = productArr;
+	}
 
-  public void addProduct(Product product){
-    Products.addItem(product);
-  }
+	//Accessor methods
+	public Product[] getProducts() {
+		return productArr;
+	}
+	
+	public Product getProductbyID(String id) {  //will be used for mapping the calculated sale price 
+	    for (int i = 0; i < productArr.length; i++) {
+	      Product foundProduct = productArr[i];
+	      if (foundProduct.getId().equals(id)){
+	        return foundProduct;
+	      }
+	    }
+	    System.out.println("The product cannot be found.");
+	    return new Product();
+	  }
 
-
-  public Product getProductbyID(String ID) {
-    for (int i = 0; i < Products.getSize(); i++) {
-      Product currentproduct = Products.getItem(i);
-      if (currentproduct.getId().equals(ID)){
-        return currentproduct;
-      }
-    }
-    System.out.println("The product cannot be found.");
-    return new Product();
-  }
-  public int getSize(){
-    return Products.getSize();
-  }
+	private String arrayToString(Product[] array) {
+		String myString = "";
+		for (int i=0; i < array.length; i++) {
+			myString = myString.concat(array[i].toString()+ ", ");
+		}
+		return myString;
+	}
+  
+	//To string override
+	@Override
+	public String toString() {
+		return "Supplier{" +
+				"product=" + arrayToString(productArr) +
+				'}';
+	}
+  
+  
+  
 }
