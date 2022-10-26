@@ -65,6 +65,7 @@ public class SalesQuery {
 
     public void getCustomerWithMostPurchase() {
     	int purchaseCount = 0;
+    	Customer richCustomer = new Customer();
     	for (Customer customer : customerArray) {
     		int temp = 0;
 				String customerName = customer.getId();
@@ -77,11 +78,11 @@ public class SalesQuery {
           }
 				}
 				if (temp > purchaseCount) {
-					System.out.print(customerName + " : ");
+					richCustomer = customer;
 					purchaseCount = temp;
 				}
 			}
-    	System.out.println(purchaseCount);
+    	System.out.println(richCustomer.getId() + " " + richCustomer.getName() + " " + richCustomer.getEmail() +  " " + richCustomer.getCountry() + " " + richCustomer.getAddress() + " -> " + purchaseCount + " purchases");
     }
     
     
