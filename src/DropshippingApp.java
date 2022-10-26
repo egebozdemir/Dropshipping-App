@@ -26,8 +26,9 @@ public class DropshippingApp {
 
     	
     	//testing one-dimensional sales arrays ---> NOT STARTED
-    	//Sales[] S1sales = new Sales(FileIO.addSalesToArray(PATH_TO_S1_SALES)[1].getId(), 5, c,a,f);
+    	//
     	//System.out.println(S1sales.toString());
+    	
     	
     	//testing one-dimensional customers array ---> NOT STARTED
     	    	
