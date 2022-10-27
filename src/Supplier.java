@@ -1,6 +1,7 @@
 public class Supplier {
 	
-	private Product[] productArr;
+	//Private instance variable (class type) 
+	private Product[] productArr; 
   
 	//Default constructor
 	public Supplier() {
@@ -12,20 +13,14 @@ public class Supplier {
 	}
 
 	//Accessor methods
-	public Product[] getProducts() {
-		return productArr;
+	public Product[] getProducts() {  
+		Product[] copy_array = new Product[productArr.length];
+		for (int i = 0; i < productArr.length; i++) {
+			copy_array[i] = productArr[i];
+		}
+		return copy_array;
 	}
 	
-	public Product getProductbyID(String id) {  //will be used for mapping the calculated sale price 
-	    for (int i = 0; i < productArr.length; i++) {
-	      Product foundProduct = productArr[i];
-	      if (foundProduct.getId().equals(id)){
-	        return foundProduct;
-	      }
-	    }
-	    System.out.println("The product cannot be found.");
-	    return null;
-	  }
 
 	private String arrayToString(Product[] array) {
 		String myString = "";

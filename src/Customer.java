@@ -1,5 +1,11 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.StringTokenizer;
+
+
 public class Customer {
 	
+	//Private instance variables (primitive type)
 	private String id;
 	private String name;
 	private String email;
@@ -17,6 +23,15 @@ public class Customer {
 		this.email = email;
 		this.country = country;
 		this.address = address;
+	}
+	
+	//Copy constructor
+	public Customer(Customer _customer) {
+		this.id = _customer.getId();
+		this.name = _customer.getName();
+		this.email = _customer.getEmail();
+		this.country = _customer.getCountry();
+		this.address = _customer.getAddress();
 	}
 
 	//Accessor methods
@@ -39,7 +54,20 @@ public class Customer {
 	public String getAddress() {
 		return address;
 	}
-
+	
+	// Converts the string of customer id to the Customer object
+	public static Customer parseCustomer(String id) throws IOException {
+		Customer customer = null;
+		BufferedReader reader = FileIO.readCSV(DropshippingApp.PATH_TO_CUSTOMERS);
+		String line = reader.readLine();
+		while ((line = reader.readLine()) != null) {
+	    StringTokenizer tokenizer = new StringTokenizer(line, ",");
+	    String token = tokenizer.nextToken();
+	       if (token.equals(id)) {
+	        customer = new Customer(token, tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken());}
+		}
+		return new Customer(customer);
+	}
 
 	//To string override
 	@Override

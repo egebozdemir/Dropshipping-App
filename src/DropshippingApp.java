@@ -1,5 +1,19 @@
 import java.io.*;
-
+/*
+ * AUTHORS:
+ * @MERTCAN_TABAKOĞLU_280201048
+ * @ESMA_İREM_TEK_280201046
+ * @MEHMET_EGE_BOZDEMİR_293078025
+ * @KAĞAN_ASLANCAN_280201045
+ * 
+ * This is the program we develop as a solution regarding the scope of the written requirements shared for the homework 1.(check READ_ME.md)
+ * Defining Classes, CSV file I/O (helper class), Arrays, 2-dimensional Arrays, Constructors, Getters & Setters concepts are considered regarding 
+ * the principals of OOP. Queries can be enlarged by adding Accessor/Manipulator methods in SalesQuery. You can simply run the DropshippingApp.java
+ * which contains a main method for a demo run (prints the result of the required queries. For accessing Business Layer that implemented by Java, 
+ * navigate to the "src/default package". For the Data Layer, you can check "CENG211_Fall2022_HW1" that holds CSV files and with using the 
+ * helper class "FileIO.java" you'll be able to access the data for any operation needed to be handled at Object or Application Level.
+ */
+		 
 public class DropshippingApp {
 	
 	//File Path constants
@@ -11,52 +25,28 @@ public class DropshippingApp {
     final static String PATH_TO_S3_PRODUCTS = "CENG211_Fall2022_HW1/S3_Products.csv";
     final static String PATH_TO_S3_SALES = "CENG211_Fall2022_HW1/S3_Sales.csv";
 
+    //main method 
     public static void main(String[] args) throws IOException {
     	
-    	//testing one-dimensional arrays created for holding the Product objects for each supplier ---> PASSED
-    	Supplier S1products = new Supplier(FileIO.addProductsToArray(PATH_TO_S1_PRODUCTS));
-    	Supplier S2products = new Supplier(FileIO.addProductsToArray(PATH_TO_S2_PRODUCTS));
-    	Supplier S3products = new Supplier(FileIO.addProductsToArray(PATH_TO_S3_PRODUCTS));
-    	System.out.println(S1products.toString());
-    	System.out.println(S2products.toString());
-    	System.out.println(S3products.toString());
-    	//System.out.println(S1products.getProducts()); //need your comments about it
-    	System.out.println(S1products.getProductbyID("E1"));
-    	System.out.println(S2products.getProductbyID("E1"));
+        SalesQuery query = new SalesQuery();
+        System.out.print("1-) ");
+        query.getMostProfitableProduct();
+        System.out.print("2-) ");
+        query.getMostExpensiveProduct();
+        System.out.print("3-) ");
+        query.getCustomerWithMostPurchase();
+        System.out.print("4-) ");
+        query.getTotalProfit();
+        System.out.print("5-) ");
+        query.getLeastProfitableProduct();
+        
+   }
+        
+    
 
-    	
-    	//testing one-dimensional sales arrays ---> NOT STARTED
-    	//
-    	//System.out.println(S1sales.toString());
-    	
-    	
-    	//testing one-dimensional customers array ---> NOT STARTED
-    	    	
-    	    	
-    	//testing two-dimensional array created for holding the Sales objects for all suppliers ---> IN PROGRESS (sales price should be calculated to complete)
-    	SalesManagement totalSales2D = new SalesManagement(FileIO.addSalesToArray(PATH_TO_S1_SALES), FileIO.addSalesToArray(PATH_TO_S2_SALES), FileIO.addSalesToArray(PATH_TO_S3_SALES));
-    	System.out.println(totalSales2D);
-    	totalSales2D.setSupplierSelection(5);
-    	totalSales2D.setSaleSelection(6);
-    	//System.out.println(totalSales2D.toString());
-    	//System.out.println(totalSales2D.getTotalSales()); //need your comments about it
-    	//System.out.println(totalSales2D.getSalesArr1()[1].setSalesPrice(4));
 
-    	
-    	
-    	//testing a product object and calculated sale price of it ---> PASSED
-    	String taytıl = new String("abc");
-    	String aydi = new String("E11");
-    	String reyt = new String("4.5");
-    	String reviuv = new String("360");
-    	String pırays = new String("130");
-    	Product exProd = new Product(aydi,taytıl,reyt,reviuv,pırays);
-    	System.out.println(exProd.toString());
-    	System.out.println(exProd.getCalcSalePrice());
-    	
-    }
+}
 	
     
     
-}
-    
+ 

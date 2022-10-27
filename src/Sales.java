@@ -1,8 +1,10 @@
+import java.io.IOException;
+
 public class Sales {
 	
 	private String id;
-	private String customer;
-	private String product;
+	private Customer customer;
+	private Product product;
 	private String salesDate;
 	private double salesPrice;
 
@@ -11,12 +13,21 @@ public class Sales {
 	}
 
 	//Full-arg constructor
-	public Sales(String id, String customer, String product, String salesDate, double salesPrice) {
+	public Sales(String id, String customer, String product, String salesDate, double salesPrice) throws IOException {
 		this.id = id;
-		this.customer = customer;
-		this.product = product;
+		this.customer = Customer.parseCustomer(customer);
+		this.product = Product.parseProduct(product);
 		this.salesDate = salesDate;
-		this.salesPrice = salesPrice;		
+		this.salesPrice = this.product.getCalcSalePrice(); 
+	}
+	
+	//Copy Consturctor
+	public Sales(Sales _sales) {
+		this.id = _sales.getId();
+		this.customer = _sales.getCustomer();
+		this.product = _sales.getProduct();
+		this.salesDate = _sales.getSalesDate();
+		this.salesPrice = _sales.getSalesPrice();
 	}
 
 	//Accessor methods
@@ -24,11 +35,11 @@ public class Sales {
 		return id;
 	}
 
-	public String getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
 
-	public String getProductId() {
+	public Product getProduct() {
 		return product;
 	}
 
@@ -39,11 +50,7 @@ public class Sales {
 	public double getSalesPrice() {
 		return salesPrice;
 	}
-	
-	//Mutator methods
-	public void setSalesPrice(int salesPrice) {
-		this.salesPrice = salesPrice;
-	}
+
 
 	//To string override
 	@Override

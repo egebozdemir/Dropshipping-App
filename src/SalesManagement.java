@@ -1,13 +1,13 @@
-
 public class SalesManagement {
-	private final int maxLength = 30; //gelen array lengthleri karşılaştırılıp büyük olan seçilebilir: improvement
+	
+	//private instance variables
 	private final int countSupplier = 3;
-	private int selectSupplier = 0;
-	private int selectSale = 0;
+	private int selectSupplier;
+	private int selectSale;
 	private Sales[] salesArr1;
 	private Sales[] salesArr2;
 	private Sales[] salesArr3;
-	private Sales[][] totalSales = new Sales[countSupplier][maxLength]; 
+	private Sales[][] totalSales = new Sales[countSupplier][]; //Sales class base-typed, 2-dimensional ragged array is declared and created 
 	
 	//Default constructor
 	public SalesManagement(){
@@ -19,21 +19,16 @@ public class SalesManagement {
 		this.salesArr2 = salesArr2;
 		this.salesArr3 = salesArr3;
 		
+		//references of the sales arrays passed as argument are copied into 2D Sales array type object created in the scope of the instance 
 		for(int i=0; i<countSupplier; i++) {
 			if(i==0) {
-				for(int j=0; j<salesArr1.length; j++) {
-					totalSales[i][j]=salesArr1[j];
-				}
+				totalSales[i] = salesArr1;
 			}
 			else if(i==1) {
-				for(int j=0; j<salesArr2.length; j++) {
-					totalSales[i][j]=salesArr2[j];
-				}
+				totalSales[i] = salesArr2;
 			}
 			else {
-				for(int j=0; j<salesArr3.length; j++) {
-					totalSales[i][j]=salesArr3[j];
-				}
+				totalSales[i] = salesArr3;
 			}
 		}
 	}
@@ -41,14 +36,6 @@ public class SalesManagement {
 	//Accessor methods
 	public Sales[][] getTotalSales() {
 		return totalSales;
-	}
-	
-	public int getSupplierSelection() {
-		return selectSupplier;
-	}
-	
-	public int getSaleSelection() {
-		return selectSale;
 	}
 	
 	public Sales[] getSalesArr1() {
@@ -62,6 +49,23 @@ public class SalesManagement {
 	public Sales[] getSalesArr3() {
 		return salesArr3;
 	}
+	
+	public int getSupplierSelection() {
+		return selectSupplier;
+	}
+	
+	public int getSaleSelection() {
+		return selectSale;
+	}
+	
+	public String getSelectedSalesToString(int selectSupplier , int selectSale) {
+		return "SalesManagement {sales=" + totalSales[selectSupplier][selectSale].toString() + "}";
+	}
+
+	public Sales getSelectedSales(int selectSupplier , int selectSale) {
+		return new Sales(totalSales[selectSupplier][selectSale]);
+	}
+
 	//Mutator methods
 	public void setSupplierSelection(int selectSupplier) {
 		this.selectSupplier = selectSupplier;
@@ -70,13 +74,8 @@ public class SalesManagement {
 	public void setSaleSelection(int selectSale) {
 		this.selectSale = selectSale;
 	}
-	
-	//To string override
-	@Override
-	public String toString() {
-		return "SalesManagement {sales=" + totalSales[selectSupplier][selectSale] + "}";
-	}
 
+	
 	
 	
 	
