@@ -20,6 +20,15 @@ public class Sales {
 		this.salesDate = salesDate;
 		this.salesPrice = this.product.getCalcSalePrice(); 
 	}
+	
+	//Copy Consturctor
+	public Sales(Sales _sales) {
+		this.id = _sales.getId();
+		this.customer = _sales.getCustomer();
+		this.product = _sales.getProduct();
+		this.salesDate = _sales.getSalesDate();
+		this.salesPrice = _sales.getSalesPrice();
+	}
 
 	//Accessor methods
 	public String getId() {

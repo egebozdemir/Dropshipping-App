@@ -1,6 +1,7 @@
 public class Supplier {
 	
-	private Product[] productArr;
+	//Private instance variable (class type) 
+	private Product[] productArr; 
   
 	//Default constructor
 	public Supplier() {
@@ -12,10 +13,14 @@ public class Supplier {
 	}
 
 	//Accessor methods
-	public Product[] getProducts() {
-		return productArr;
+	public Product[] getProducts() {  
+		Product[] copy_array = new Product[productArr.length];
+		for (int i = 0; i < productArr.length; i++) {
+			copy_array[i] = productArr[i];
+		}
+		return copy_array;
 	}
-
+	
 	private String arrayToString(Product[] array) {
 		String myString = "";
 		for (int i=0; i < array.length; i++) {
@@ -31,4 +36,8 @@ public class Supplier {
 				"product=" + arrayToString(productArr) +
 				'}';
 	}
+
+
+
+
 }

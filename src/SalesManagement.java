@@ -1,12 +1,13 @@
 public class SalesManagement {
+	
+	//private instance variables
 	private final int countSupplier = 3;
 	private int selectSupplier;
 	private int selectSale;
 	private Sales[] salesArr1;
 	private Sales[] salesArr2;
 	private Sales[] salesArr3;
-	private Sales[][] totalSalesArr = new Sales[countSupplier][];
-	// totalSales 2D array => [nth supplier][nth sale]
+	private Sales[][] totalSales = new Sales[countSupplier][]; //Sales class base-typed, 2-dimensional ragged array is declared and created 
 	
 	//Default constructor
 	public SalesManagement(){
@@ -17,23 +18,24 @@ public class SalesManagement {
 		this.salesArr1 = salesArr1;
 		this.salesArr2 = salesArr2;
 		this.salesArr3 = salesArr3;
-
+		
+		//references of the sales arrays passed as argument are copied into 2D Sales array type object created in the scope of the instance 
 		for(int i=0; i<countSupplier; i++) {
 			if(i==0) {
-				totalSalesArr[i] = salesArr1;
+				totalSales[i] = salesArr1;
 			}
 			else if(i==1) {
-				totalSalesArr[i] = salesArr2;
+				totalSales[i] = salesArr2;
 			}
 			else {
-				totalSalesArr[i] = salesArr3;
+				totalSales[i] = salesArr3;
 			}
 		}
 	}
 	
 	//Accessor methods
-	public Sales[][] getTotalSalesArr() {
-		return totalSalesArr;
+	public Sales[][] getTotalSales() {
+		return totalSales;
 	}
 	
 	public Sales[] getSalesArr1() {
@@ -55,6 +57,14 @@ public class SalesManagement {
 	public int getSaleSelection() {
 		return selectSale;
 	}
+	
+	public String getSelectedSalesToString(int selectSupplier , int selectSale) {
+		return "SalesManagement {sales=" + totalSales[selectSupplier][selectSale].toString() + "}";
+	}
+
+	public Sales getSelectedSales(int selectSupplier , int selectSale) {
+		return new Sales(totalSales[selectSupplier][selectSale]);
+	}
 
 	//Mutator methods
 	public void setSupplierSelection(int selectSupplier) {
@@ -65,17 +75,7 @@ public class SalesManagement {
 		this.selectSale = selectSale;
 	}
 
-	public String getSelectedSaleToString(int selectSupplier , int selectSale) {
-		return "SalesManagement {sales=" + totalSalesArr[selectSupplier][selectSale].toString() + "}";
-	}
 
-	public Sales getSelectedSale(int selectSupplier , int selectSale) {
-		return totalSalesArr[selectSupplier][selectSale];
-	}
 
-	
-	
-	
-	
 	
 }
