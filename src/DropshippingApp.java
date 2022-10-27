@@ -2,7 +2,6 @@ import java.io.*;
 
 public class DropshippingApp {
 	
-
     public static void main(String[] args) throws IOException {
     	
         SalesQuery query = new SalesQuery();
@@ -17,13 +16,6 @@ public class DropshippingApp {
         System.out.print("5-) ");
         query.getLeastProfitableProduct();
         
-   }
-        
-    
-
-
-}
-	
-    
-    
+    }
  
+}
