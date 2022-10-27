@@ -25,6 +25,16 @@ public class Product {
     this.calcSalePrice = this.price + ((this.rate/5.0)*100)*this.numberOfReviews;
 	}
 
+	public Product(Product _product){
+		this.id = _product.getId();
+		this.title = _product.getTitle();
+		this.rate = _product.getRate();
+		this.numberOfReviews = _product.getNumberOfReviews();
+		this.price = _product.getPrice();
+		this.calcSalePrice = _product.getCalcSalePrice();
+	}
+
+
 	//Accessor methods
 	public String getId() {
 		return id;
