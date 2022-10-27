@@ -70,36 +70,60 @@ public class Product {
 		case 'E': //if product id's starts with E
 			BufferedReader reader = FileIO.readCSV(DropshippingApp.PATH_TO_S1_PRODUCTS);
 			String line = reader.readLine();
-			while ((line = reader.readLine()) != null) {
-	    	StringTokenizer tokenizer = new StringTokenizer(line, ",");
-	    	String token = tokenizer.nextToken();
-	        if (token.equals(id)) { //creating a product object with the same id and tokens obtained from the CSV line for passing the copy of the object to the constructor method of Sales 
-	        	product = new Product(token, tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken());
-	        }
-	      }
-			break;
+			try {
+				while ((line = reader.readLine()) != null) {
+		    	StringTokenizer tokenizer = new StringTokenizer(line, ",");
+		    	String token = tokenizer.nextToken();
+		        if (token.equals(id)) { //creating a product object with the same id and tokens obtained from the CSV line for passing the copy of the object to the constructor method of Sales 
+		        	product = new Product(token, tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken());
+		        	}
+				}
+				reader.close();
+				break;
+			}
+			//Exception Handling
+			catch (IOException e){
+		    	  System.out.println(e); //print the exception message e
+		    	  return null; //return a variable does not return any object or array
+		      }
+			
 		case 'C': //if product id's starts with C
 			reader = FileIO.readCSV(DropshippingApp.PATH_TO_S2_PRODUCTS);
 			line = reader.readLine();
-			while ((line = reader.readLine()) != null) {
-	    	StringTokenizer tokenizer = new StringTokenizer(line, ",");
-	    	String token = tokenizer.nextToken();
-	        if (token.equals(id)) {
-	        	product = new Product(token, tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken());
-	        }
-	      }
-			break;
+			try {
+				while ((line = reader.readLine()) != null) {
+		    	StringTokenizer tokenizer = new StringTokenizer(line, ",");
+		    	String token = tokenizer.nextToken();
+		        if (token.equals(id)) {
+		        	product = new Product(token, tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken());
+		        	}
+				}
+				reader.close();
+				break;
+			}
+			//Exception Handling
+			catch (IOException e){
+				System.out.println(e); //print the exception message e
+		    	return null; //return a variable does not return any object or array
+		     }
+
 		case 'O': //if product id's starts with O
 			reader = FileIO.readCSV(DropshippingApp.PATH_TO_S3_PRODUCTS);
 			line = reader.readLine();
-			while ((line = reader.readLine()) != null) {
-	    	StringTokenizer tokenizer = new StringTokenizer(line, ",");
-	    	String token = tokenizer.nextToken();
-	        if (token.equals(id)) {
-	        	product = new Product(token, tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken());
-	        }
-	      }
-			break;
+			try {
+				while ((line = reader.readLine()) != null) {
+		    	StringTokenizer tokenizer = new StringTokenizer(line, ",");
+		    	String token = tokenizer.nextToken();
+		        if (token.equals(id)) {
+		        	product = new Product(token, tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken());
+		        	}
+				}
+				break;
+			}
+			catch (IOException e){
+				System.out.println(e); //print the exception message e
+		    	return null; //return a variable does not return any object or array
+		    }
 		}
 		return product;
 	}

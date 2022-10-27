@@ -24,6 +24,7 @@ public class FileIO {
 	    	while (reader.readLine() != null) {
 	    		line++;
 	    	}
+	    	reader.close();
 	    	return (line-1); //We will drop the first line of column names in the csv file.
     	}
     	//Exception handling

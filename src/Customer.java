@@ -60,13 +60,21 @@ public class Customer {
 		Customer customer = null;
 		BufferedReader reader = FileIO.readCSV(DropshippingApp.PATH_TO_CUSTOMERS);
 		String line = reader.readLine();
-		while ((line = reader.readLine()) != null) {
-	    StringTokenizer tokenizer = new StringTokenizer(line, ",");
-	    String token = tokenizer.nextToken();
-	       if (token.equals(id)) {
-	        customer = new Customer(token, tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken());}
+		try {
+			while ((line = reader.readLine()) != null) {
+		    StringTokenizer tokenizer = new StringTokenizer(line, ",");
+		    String token = tokenizer.nextToken();
+		       if (token.equals(id)) {
+		        customer = new Customer(token, tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken());}
+			}
+			reader.close();
+			return new Customer(customer);
 		}
-		return new Customer(customer);
+		//Exception handling
+		catch (IOException e){
+	      	System.out.println(e); //print the exception message e
+	      	return null;
+	    }
 	}
 
 	//To string override
