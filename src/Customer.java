@@ -48,7 +48,7 @@ public class Customer {
 	// Converts the string of customer ID to the customer object
 	public static Customer parseCustomer(String id) throws IOException {
 		Customer customer = null;
-		BufferedReader reader = FileIO.readCSV(DropshippingApp.PATH_TO_CUSTOMERS);
+		BufferedReader reader = FileIO.readCSV(SalesQuery.PATH_TO_CUSTOMERS);
 		String line = reader.readLine();
 		while ((line = reader.readLine()) != null) {
 	    StringTokenizer tokenizer = new StringTokenizer(line, ",");
