@@ -15,17 +15,6 @@ public class Supplier {
 	public Product[] getProducts() {
 		return productArr;
 	}
-	
-	public Product getProductbyID(String id) {  //will be used for mapping the calculated sale price 
-	    for (int i = 0; i < productArr.length; i++) {
-	      Product foundProduct = productArr[i];
-	      if (foundProduct.getId().equals(id)){
-	        return foundProduct;
-	      }
-	    }
-	    System.out.println("The product cannot be found.");
-	    return null;
-	  }
 
 	private String arrayToString(Product[] array) {
 		String myString = "";
@@ -42,7 +31,4 @@ public class Supplier {
 				"product=" + arrayToString(productArr) +
 				'}';
 	}
-  
-  
-  
 }

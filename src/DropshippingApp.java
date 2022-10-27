@@ -2,36 +2,20 @@ import java.io.*;
 
 public class DropshippingApp {
 	
-	//File Path constants
-    final static String PATH_TO_CUSTOMERS = "CENG211_Fall2022_HW1/Customers.csv";
-    final static String PATH_TO_S1_PRODUCTS = "CENG211_Fall2022_HW1/S1_Products.csv";
-    final static String PATH_TO_S1_SALES = "CENG211_Fall2022_HW1/S1_Sales.csv";
-    final static String PATH_TO_S2_PRODUCTS = "CENG211_Fall2022_HW1/S2_Products.csv";
-    final static String PATH_TO_S2_SALES = "CENG211_Fall2022_HW1/S2_Sales.csv";
-    final static String PATH_TO_S3_PRODUCTS = "CENG211_Fall2022_HW1/S3_Products.csv";
-    final static String PATH_TO_S3_SALES = "CENG211_Fall2022_HW1/S3_Sales.csv";
-
     public static void main(String[] args) throws IOException {
     	
         SalesQuery query = new SalesQuery();
-        System.out.print("1-) ");
+        System.out.print("\n1-) ");
         query.getMostProfitableProduct();
-        System.out.print("2-) ");
+        System.out.print("\n2-) ");
         query.getMostExpensiveProduct();
-        System.out.print("3-) ");
+        System.out.print("\n3-) ");
         query.getCustomerWithMostPurchase();
-        System.out.print("4-) ");
+        System.out.print("\n4-) ");
         query.getTotalProfit();
-        System.out.print("5-) ");
+        System.out.print("\n5-) ");
         query.getLeastProfitableProduct();
         
-   }
-        
-    
-
-
-}
-	
-    
-    
+    }
  
+}
