@@ -19,7 +19,7 @@ public class SalesQuery {
     final static String PATH_TO_S3_PRODUCTS = "CENG211_Fall2022_HW1/S3_Products.csv";
     final static String PATH_TO_S3_SALES = "CENG211_Fall2022_HW1/S3_Sales.csv";
 
-
+    private Customer[] customerArray;
     private Supplier S1Products;
     private Supplier S2Products;
     private Supplier S3Products;
@@ -27,6 +27,8 @@ public class SalesQuery {
 
 
     public SalesQuery() throws IOException {
+        customerArray = new Customer[FileIO.csvFileLineNumberCalculator(FileIO.readCSV(PATH_TO_CUSTOMERS))];
+        customerArray = FileIO.addCustomersToArray(PATH_TO_CUSTOMERS);
         S1Products = new Supplier(FileIO.addProductsToArray(PATH_TO_S1_PRODUCTS));
         S2Products = new Supplier(FileIO.addProductsToArray(PATH_TO_S2_PRODUCTS));
         S3Products = new Supplier(FileIO.addProductsToArray(PATH_TO_S3_PRODUCTS));
@@ -71,8 +73,26 @@ public class SalesQuery {
 
 
 
-    public void maxPurchase(){
-
+    public void getCustomerWithMostPurchase() {  // For Query-3
+        int purchaseCount = 0;
+        Customer richCustomer = new Customer();
+        for (Customer customer : customerArray) {
+            int temp = 0;
+            String customerName = customer.getId();
+            for (int i = 0; i < 3 ; i++) {
+                for (int j = 0; j < getTotalSales2D().getTotalSales()[i].length; j++) {
+                    Sales curSales = totalSales2D.getSelectedSales(i,j);
+                    if (curSales.getCustomer().getId().equals(customerName)) {
+                        temp++;
+                    }
+                }
+            }
+            if (temp > purchaseCount) {
+                richCustomer = customer;
+                purchaseCount = temp;
+            }
+        }
+        System.out.println(richCustomer.getId() + " " + richCustomer.getName() + " " + richCustomer.getEmail() +  " " + richCustomer.getCountry() + " " + richCustomer.getAddress() + " -> " + purchaseCount + " purchases");
     }
 
 

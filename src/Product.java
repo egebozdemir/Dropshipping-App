@@ -25,6 +25,7 @@ public class Product {
     this.calcSalePrice = this.price + ((this.rate/5.0)*100)*this.numberOfReviews;
 	}
 
+	//Copy consturctor
 	public Product(Product _product){
 		this.id = _product.getId();
 		this.title = _product.getTitle();

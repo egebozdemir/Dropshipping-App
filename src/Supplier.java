@@ -13,14 +13,18 @@ public class Supplier {
 
 	//Accessor methods
 	public Product[] getProducts() {
-		return productArr;
+		Product[] copy_array = new Product[productArr.length];
+		for (int i = 0; i < productArr.length; i++) {
+			copy_array[i] = productArr[i];
+		}
+		return copy_array;
 	}
 	
 	public Product getProductbyID(String id) {  //will be used for mapping the calculated sale price 
 	    for (int i = 0; i < productArr.length; i++) {
 	      Product foundProduct = productArr[i];
 	      if (foundProduct.getId().equals(id)){
-	        return foundProduct;
+	        return new Product(foundProduct);
 	      }
 	    }
 	    System.out.println("The product cannot be found.");

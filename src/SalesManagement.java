@@ -2,8 +2,6 @@
 public class SalesManagement {
 	private final int maxLength = 30; //gelen array lengthleri karşılaştırılıp büyük olan seçilebilir: improvement
 	private final int countSupplier = 3;
-	private int selectSupplier = 0;
-	private int selectSale = 0;
 	private Sales[] salesArr1;
 	private Sales[] salesArr2;
 	private Sales[] salesArr3;
@@ -22,36 +20,20 @@ public class SalesManagement {
 		for(int i=0; i<countSupplier; i++) {
 			if(i==0) {
 				totalSales[i] = salesArr1;
-//				for(int j=0; j<salesArr1.length; j++) {
-//					totalSales[i][j]=salesArr1[j];
-//				}
 			}
 			else if(i==1) {
 				totalSales[i] = salesArr2;
-//				for(int j=0; j<salesArr2.length; j++) {
-//					totalSales[i][j]=salesArr2[j];
-//				}
 			}
 			else {
 				totalSales[i] = salesArr3;
-//				for(int j=0; j<salesArr3.length; j++) {
-//					totalSales[i][j]=salesArr3[j];
-//				}
 			}
 		}
 	}
+
 	
 	//Accessor methods
 	public Sales[][] getTotalSales() {
 		return totalSales;
-	}
-	
-	public int getSupplierSelection() {
-		return selectSupplier;
-	}
-	
-	public int getSaleSelection() {
-		return selectSale;
 	}
 	
 	public Sales[] getSalesArr1() {
@@ -65,21 +47,13 @@ public class SalesManagement {
 	public Sales[] getSalesArr3() {
 		return salesArr3;
 	}
-	//Mutator methods
-	public void setSupplierSelection(int selectSupplier) {
-		this.selectSupplier = selectSupplier;
-	}
-	
-	public void setSaleSelection(int selectSale) {
-		this.selectSale = selectSale;
-	}
 
 	public String getSelectedSalesToString(int selectSupplier , int selectSale) {
 		return "SalesManagement {sales=" + totalSales[selectSupplier][selectSale].toString() + "}";
 	}
 
 	public Sales getSelectedSales(int selectSupplier , int selectSale) {
-		return totalSales[selectSupplier][selectSale];
+		return new Sales(totalSales[selectSupplier][selectSale]);
 	}
 
 	

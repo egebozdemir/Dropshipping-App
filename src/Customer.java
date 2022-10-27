@@ -9,7 +9,6 @@ public class Customer {
 	private String email;
 	private String country;
 	private String address;
-	private int numberOfPurchase = 0;
 	//Default constructor
 	public Customer() {	
 	}
@@ -21,6 +20,14 @@ public class Customer {
 		this.email = email;
 		this.country = country;
 		this.address = address;
+	}
+
+	public Customer(Customer _customer) {
+		this.id = _customer.getId();
+		this.name = _customer.getName();
+		this.email = _customer.getEmail();
+		this.country = _customer.getCountry();
+		this.address = _customer.getAddress();
 	}
 
 	//Accessor methods
@@ -44,7 +51,7 @@ public class Customer {
 		return address;
 	}
 
-	public int getNumberOfPurchase() {return numberOfPurchase; }
+
 
 	// Converts the string of customer ID to the customer object
 	public static Customer parseCustomer(String id) throws IOException {
@@ -58,12 +65,9 @@ public class Customer {
         	customer = new Customer(token, tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken());
         }
       }
-		return customer;
+		return new Customer(customer);
 	}
 
-	public void increaseNumberofPurchase(){
-		numberOfPurchase+=1;
-	}
 
 	//To string override
 	@Override

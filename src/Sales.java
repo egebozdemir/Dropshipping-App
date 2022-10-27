@@ -16,10 +16,18 @@ public class Sales {
 	public Sales(String id, String customer, String product, String salesDate, double salesPrice) throws IOException {
 		this.id = id;
 		this.customer = Customer.parseCustomer(customer);
-		this.customer.increaseNumberofPurchase();
 		this.product = Product.parseProduct(product);
 		this.salesDate = salesDate;
 		this.salesPrice = this.product.getCalcSalePrice();
+	}
+
+	//Copy Consturctor
+	public Sales(Sales _sales) {
+		this.id = _sales.getId();
+		this.customer = _sales.getCustomer();
+		this.product = _sales.getProduct();
+		this.salesDate = _sales.getSalesDate();
+		this.salesPrice = _sales.getSalesPrice();
 	}
 
 	//Accessor methods
