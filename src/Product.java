@@ -57,7 +57,7 @@ public class Product {
 		Product product = null;
 		switch (id.charAt(0)) {
 		case 'E':
-			BufferedReader reader = FileIO.readCSV(DropshippingApp.PATH_TO_S1_PRODUCTS);
+			BufferedReader reader = FileIO.readCSV(SalesQuery.PATH_TO_S1_PRODUCTS);
 			String line = reader.readLine();
 			while ((line = reader.readLine()) != null) {
 	    	StringTokenizer tokenizer = new StringTokenizer(line, ",");
@@ -68,7 +68,7 @@ public class Product {
 	      }
 			break;
 		case 'C':
-			reader = FileIO.readCSV(DropshippingApp.PATH_TO_S2_PRODUCTS);
+			reader = FileIO.readCSV(SalesQuery.PATH_TO_S2_PRODUCTS);
 			line = reader.readLine();
 			while ((line = reader.readLine()) != null) {
 	    	StringTokenizer tokenizer = new StringTokenizer(line, ",");
@@ -79,7 +79,7 @@ public class Product {
 	      }
 			break;
 		case 'O':
-			reader = FileIO.readCSV(DropshippingApp.PATH_TO_S3_PRODUCTS);
+			reader = FileIO.readCSV(SalesQuery.PATH_TO_S3_PRODUCTS);
 			line = reader.readLine();
 			while ((line = reader.readLine()) != null) {
 	    	StringTokenizer tokenizer = new StringTokenizer(line, ",");
@@ -105,9 +105,5 @@ public class Product {
 				", price='" + price + '\'' +
 				'}';
 	}
-
-
-	
-
 
 }
