@@ -21,7 +21,6 @@ public class Supplier {
 		return copy_array;
 	}
 	
-
 	private String arrayToString(Product[] array) {
 		String myString = "";
 		for (int i=0; i < array.length; i++) {

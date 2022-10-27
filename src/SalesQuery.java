@@ -1,7 +1,6 @@
 import java.io.IOException;
 /*
  * Immutable: SalesQuery (Data Class)
- * no setter/modifier methods
  */
 
 public class SalesQuery {
@@ -17,19 +16,22 @@ public class SalesQuery {
 
     //Private instance variables 
     private Customer[] customerArray;
-    private Supplier S1Products;
-    private Supplier S2Products;
-    private Supplier S3Products;
     private SalesManagement totalSales2D;
 
     //Default constructor
     public SalesQuery() throws IOException {
-    	customerArray = new Customer[FileIO.getCSVlineCount(FileIO.readCSV(PATH_TO_CUSTOMERS))];
-    	customerArray = FileIO.addCustomersToArray(PATH_TO_CUSTOMERS);
-        S1Products = new Supplier(FileIO.addProductsToArray(PATH_TO_S1_PRODUCTS));
-        S2Products = new Supplier(FileIO.addProductsToArray(PATH_TO_S2_PRODUCTS));
-        S3Products = new Supplier(FileIO.addProductsToArray(PATH_TO_S3_PRODUCTS));
-        totalSales2D = new SalesManagement(FileIO.addSalesToArray(PATH_TO_S1_SALES),FileIO.addSalesToArray(PATH_TO_S2_SALES),FileIO.addSalesToArray(PATH_TO_S3_SALES));
+    	try {
+	    	customerArray = new Customer[FileIO.getCSVlineCount(FileIO.readCSV(PATH_TO_CUSTOMERS))];
+	    	customerArray = FileIO.addCustomersToArray(PATH_TO_CUSTOMERS);
+	        //S1Products = new Supplier(FileIO.addProductsToArray(PATH_TO_S1_PRODUCTS));
+	        //S2Products = new Supplier(FileIO.addProductsToArray(PATH_TO_S2_PRODUCTS));
+	        //S3Products = new Supplier(FileIO.addProductsToArray(PATH_TO_S3_PRODUCTS));
+	        totalSales2D = new SalesManagement(FileIO.addSalesToArray(PATH_TO_S1_SALES),FileIO.addSalesToArray(PATH_TO_S2_SALES),FileIO.addSalesToArray(PATH_TO_S3_SALES));
+    	}
+    	//Exception handling
+    	catch (IOException e){
+    		System.out.println(e); //print the exception message e
+    	}
     }
 
     //Accessor methods for evaluating the required queries given in the scope for HW
@@ -114,17 +116,6 @@ public class SalesQuery {
         System.out.println(temp_sales.getProduct().toString() + " --> "+  temp_profit + " TL profit");
     }
     
-	public Supplier getS1Products() {
-		return S1Products;
-	}
-
-	public Supplier getS2Products() {
-		return S2Products;
-	}
-
-	public Supplier getS3Products() {
-		return S3Products;
-	}
     
     
     
