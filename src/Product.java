@@ -4,7 +4,7 @@ import java.util.StringTokenizer;
 
 
 public class Product {
-	
+
 	//private instance variables (primitive type)
 	private String id;
 	private String title;
@@ -74,9 +74,9 @@ public class Product {
 				while ((line = reader.readLine()) != null) {
 		    	StringTokenizer tokenizer = new StringTokenizer(line, ",");
 		    	String token = tokenizer.nextToken();
-		        if (token.equals(id)) { //creating a product object with the same id and tokens obtained from the CSV line for passing the copy of the object to the constructor method of Sales 
+		      if (token.equals(id)) { //creating a product object with the same id and tokens obtained from the CSV line for passing the copy of the object to the constructor method of Sales 
 		        	product = new Product(token, tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken(), tokenizer.nextToken());
-		        	}
+		      }
 				}
 				reader.close();
 				break;
@@ -85,8 +85,8 @@ public class Product {
 			catch (IOException e){
 		    	  System.out.println(e); //print the exception message e
 		    	  return null; //return a variable does not return any object or array
-		      }
-			
+		  }
+		
 		case 'C': //if product id's starts with C
 			reader = FileIO.readCSV(DropshippingApp.PATH_TO_S2_PRODUCTS);
 			line = reader.readLine();
@@ -104,8 +104,8 @@ public class Product {
 			//Exception Handling
 			catch (IOException e){
 				System.out.println(e); //print the exception message e
-		    	return null; //return a variable does not return any object or array
-		     }
+		    return null; //return a variable does not return any object or array
+		   }
 
 		case 'O': //if product id's starts with O
 			reader = FileIO.readCSV(DropshippingApp.PATH_TO_S3_PRODUCTS);
@@ -122,8 +122,8 @@ public class Product {
 			}
 			catch (IOException e){
 				System.out.println(e); //print the exception message e
-		    	return null; //return a variable does not return any object or array
-		    }
+		    return null; //return a variable does not return any object or array
+		  }
 		}
 		return product;
 	}
@@ -141,8 +141,6 @@ public class Product {
 				'}';
 	}
 
-
-	
 
 
 }

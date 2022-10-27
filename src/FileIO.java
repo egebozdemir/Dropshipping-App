@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 public class FileIO {
-	
+
 	// Accessor methods
     public static BufferedReader readCSV(String pathToFile) throws IOException {
         try{
@@ -28,12 +28,12 @@ public class FileIO {
 	    	return (line-1); //We will drop the first line of column names in the csv file.
     	}
     	//Exception handling
-        catch (IOException e){
-      	  System.out.println(e); //print the exception message e
-      	  return 0;
-        }
+      catch (IOException e){
+      	System.out.println(e); //print the exception message e
+      	return 0;
+      }
     }
-    
+   
     
     // Manipulator methods
     // To add values read from file to an array may contain different class type (Product, Sale or Customer) objects.
@@ -60,7 +60,7 @@ public class FileIO {
       }
     }
     
-    
+  
     /* For sales */
     public static Sales[] addSalesToArray(String filePath) throws IOException {
       BufferedReader reader = readCSV(filePath);
@@ -109,5 +109,5 @@ public class FileIO {
     
     
     
-    
+  
 }

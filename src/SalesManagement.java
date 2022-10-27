@@ -75,10 +75,7 @@ public class SalesManagement {
 		this.selectSale = selectSale;
 	}
 
-	
-	
-	
-	
-	
+
+
 	
 }
