@@ -5,7 +5,8 @@ public class SalesManagement {
 	private Sales[] salesArr1;
 	private Sales[] salesArr2;
 	private Sales[] salesArr3;
-	private Sales[][] totalSales = new Sales[countSupplier][];
+	private Sales[][] totalSalesArr = new Sales[countSupplier][];
+	// totalSales 2D array => [nth supplier][nth sale]
 	
 	//Default constructor
 	public SalesManagement(){
@@ -19,20 +20,20 @@ public class SalesManagement {
 
 		for(int i=0; i<countSupplier; i++) {
 			if(i==0) {
-				totalSales[i] = salesArr1;
+				totalSalesArr[i] = salesArr1;
 			}
 			else if(i==1) {
-				totalSales[i] = salesArr2;
+				totalSalesArr[i] = salesArr2;
 			}
 			else {
-				totalSales[i] = salesArr3;
+				totalSalesArr[i] = salesArr3;
 			}
 		}
 	}
 	
 	//Accessor methods
-	public Sales[][] getTotalSales() {
-		return totalSales;
+	public Sales[][] getTotalSalesArr() {
+		return totalSalesArr;
 	}
 	
 	public Sales[] getSalesArr1() {
@@ -64,12 +65,12 @@ public class SalesManagement {
 		this.selectSale = selectSale;
 	}
 
-	public String getSelectedSalesToString(int selectSupplier , int selectSale) {
-		return "SalesManagement {sales=" + totalSales[selectSupplier][selectSale].toString() + "}";
+	public String getSelectedSaleToString(int selectSupplier , int selectSale) {
+		return "SalesManagement {sales=" + totalSalesArr[selectSupplier][selectSale].toString() + "}";
 	}
 
-	public Sales getSelectedSales(int selectSupplier , int selectSale) {
-		return totalSales[selectSupplier][selectSale];
+	public Sales getSelectedSale(int selectSupplier , int selectSale) {
+		return totalSalesArr[selectSupplier][selectSale];
 	}
 
 	
