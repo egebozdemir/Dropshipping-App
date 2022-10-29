@@ -43,7 +43,7 @@ public class SalesQuery {
             }
         }
         //printing the query result by using string override method inherited from Sales class by creating Sales class type object within the scope of method
-        System.out.println("The most profitable product among the three suppliers: \n");
+        System.out.println("The most profitable product among the three suppliers:");
         System.out.println(temp_sale.getProduct().toString() + " --> with profit of "+  temp_profit + " TL"); 
         
     }
@@ -61,7 +61,7 @@ public class SalesQuery {
                 }
             }
         }
-        System.out.println("The most expensive product in terms of SalesPrice: \n");
+        System.out.println("The most expensive product in terms of SalesPrice:");
         System.out.println(temp_sales.getProduct().toString() + " --> with sale price "+  temp_salePrice + " TL");
     }
 
@@ -84,7 +84,7 @@ public class SalesQuery {
 					purchaseCount = temp;
 				}
 			}
-        System.out.println("The customer who purchases the most products for all three suppliers: \n");
+        System.out.println("The customer who purchases the most products for all three suppliers:");
         System.out.println(temp_customer.toString() + " --> with " + purchaseCount + " purchases");
     }
     
@@ -97,7 +97,7 @@ public class SalesQuery {
                 total_profit += profit;
             }
         }
-        System.out.println("The total profit that is made from all sales: \n");
+        System.out.println("The total profit that is made from all sales:");
         System.out.println(String.format("%.2f", total_profit) + " TL");
     }
 
@@ -111,12 +111,12 @@ public class SalesQuery {
                     temp_sales = currentSale;
                 }
         }
-        System.out.println("The least-profit product of S1: \n");
+        System.out.println("The least-profit product of S1:");
         System.out.println(temp_sales.getProduct().toString() + " --> with profit of "+  temp_profit + " TL");
     }
     
     public void display() throws IOException { // For displaying queries in main method.
-    	System.out.print("\n1-) ");
+    	System.out.print("1-) ");
       getMostProfitableProduct();
       System.out.print("\n2-) ");
       getMostExpensiveProduct();
