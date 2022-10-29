@@ -116,15 +116,15 @@ public class SalesQuery {
     }
     
     public void display() throws IOException { // For displaying queries in main method.
-    	System.out.print("1-) ");
+    	System.out.print("\n1-) ");
       getMostProfitableProduct();
-      System.out.print("2-) ");
+      System.out.print("\n2-) ");
       getMostExpensiveProduct();
-      System.out.print("3-) ");
+      System.out.print("\n3-) ");
       getCustomerWithMostPurchase();
-      System.out.print("4-) ");
+      System.out.print("\n4-) ");
       getTotalProfit();
-      System.out.print("5-) ");
+      System.out.print("\n5-) ");
       getLeastProfitableProduct();
     }
 }
