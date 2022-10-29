@@ -56,12 +56,6 @@ public class Sales {
 	//To string override
 	@Override
 	public String toString() {
-		return "Sales{" +
-				"id='" + id + '\'' +
-				", customer='" + customer + '\'' +
-				", product='" + product + '\'' +
-				", salesDate='" + salesDate + '\'' +
-				", salesPrice='" + salesPrice + '\'' +
-				'}';
+		return id + " " + customer.toString() + " " + product.toString() + " " + salesDate + " " + salesPrice;
 	}
 }

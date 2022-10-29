@@ -32,18 +32,22 @@ public class SalesQuery {
 
     public void getMostProfitableProduct(){ //For Query-1: The most profitable product among the three suppliers. Amount of profit included. 
         double temp_profit = 0; //we are creating the primitive/class type method variables to copy the reference of the calculated values 
-        Sales temp_sales = new Sales(); // (privacy leak concept to review)
+        Sales temp_sale = new Sales(); // (privacy leak concept to review)
         for (int i = 0; i < 3 ; i++) { //traverse each element in the 2D Sales array 
             for (int j = 0; j < getSalesManagementObj().getTotalSales()[i].length; j++) { 
                 Sales currentSale = salesManagementObj.getSelectedSales(i,j); //get the sales object with respect to current index and create a copy of it
                 if (currentSale.getSalesPrice()- currentSale.getProduct().getPrice() > temp_profit){
                     temp_profit = currentSale.getSalesPrice()- currentSale.getProduct().getPrice(); //right-hand side is evaluated, the reference of the required calculation is copied to a method variable "temp_..."
-                    temp_sales = currentSale; //copy the reference of the calculated value onto an sales object created when the method is invoked
+                    temp_sale = currentSale; //copy the reference of the calculated value onto an sales object created when the method is invoked
                 }
             }
         }
-        System.out.println(temp_sales.getProduct().toString() + " --> "+  temp_profit + " TL profit"); //printing the query result by using string override method inherited from Sales class by creating Sales class type object within the scope of method
+        //printing the query result by using string override method inherited from Sales class by creating Sales class type object within the scope of method
+        System.out.println("The most profitable product among the three suppliers: \n");
+        System.out.println(temp_sale.getProduct().toString() + " --> with profit of "+  temp_profit + " TL"); 
+        
     }
+    
 
     public void getMostExpensiveProduct(){ //For Query-2: The most expensive product in terms of Sales Price. Amount of SalesPrice included.
         double temp_salePrice = 0; 
@@ -57,6 +61,7 @@ public class SalesQuery {
                 }
             }
         }
+        System.out.println("The most expensive product in terms of SalesPrice: \n");
         System.out.println(temp_sales.getProduct().toString() + " --> with sale price "+  temp_salePrice + " TL");
     }
 
@@ -79,7 +84,8 @@ public class SalesQuery {
 					purchaseCount = temp;
 				}
 			}
-    	System.out.println(temp_customer.toString() + " -> " + purchaseCount + " purchases");
+        System.out.println("The customer who purchases the most products for all three suppliers: \n");
+        System.out.println(temp_customer.toString() + " --> with " + purchaseCount + " purchases");
     }
     
     public void getTotalProfit(){ // For Query-4: The total profit that is made from all sales.
@@ -91,6 +97,7 @@ public class SalesQuery {
                 total_profit += profit;
             }
         }
+        System.out.println("The total profit that is made from all sales: \n");
         System.out.println(String.format("%.2f", total_profit) + " TL");
     }
 
@@ -104,7 +111,8 @@ public class SalesQuery {
                     temp_sales = currentSale;
                 }
         }
-        System.out.println(temp_sales.getProduct().toString() + " --> "+  temp_profit + " TL profit");
+        System.out.println("The least-profit product of S1: \n");
+        System.out.println(temp_sales.getProduct().toString() + " --> with profit of "+  temp_profit + " TL");
     }
     
     public void display() throws IOException { // For displaying queries in main method.

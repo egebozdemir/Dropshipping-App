@@ -9,7 +9,7 @@ public class SalesManagement {
 	private Sales[] salesArr1;
 	private Sales[] salesArr2;
 	private Sales[] salesArr3;
-	private Sales[][] totalSales = new Sales[countSupplier][]; //Sales class base-typed, 2-dimensional ragged array is declared and created 
+	private Sales[][] totalSalesArr = new Sales[countSupplier][]; //Sales class base-typed, 2-dimensional ragged array is declared and created 
 	
 	//Default constructor
 	public SalesManagement(){
@@ -24,20 +24,20 @@ public class SalesManagement {
 		//references of the sales arrays passed as argument are copied into 2D Sales array type object created in the scope of the instance 
 		for(int i=0; i<countSupplier; i++) {
 			if(i==0) {
-				totalSales[i] = salesArr1;
+				totalSalesArr[i] = salesArr1;
 			}
 			else if(i==1) {
-				totalSales[i] = salesArr2;
+				totalSalesArr[i] = salesArr2;
 			}
 			else {
-				totalSales[i] = salesArr3;
+				totalSalesArr[i] = salesArr3;
 			}
 		}
 	}
 	
 	//Accessor methods
 	public Sales[][] getTotalSales() {
-		return totalSales;
+		return totalSalesArr;
 	}
 	
 	public Sales[] getSalesArr1() {
@@ -61,11 +61,11 @@ public class SalesManagement {
 	}
 	
 	public String getSelectedSalesToString(int selectSupplier , int selectSale) {
-		return "SalesManagement {sales=" + totalSales[selectSupplier][selectSale].toString() + "}";
+		return totalSalesArr[selectSupplier][selectSale].toString();
 	}
 
 	public Sales getSelectedSales(int selectSupplier , int selectSale) {
-		return new Sales(totalSales[selectSupplier][selectSale]);
+		return new Sales(totalSalesArr[selectSupplier][selectSale]);
 	}
 
 	//Mutator methods
