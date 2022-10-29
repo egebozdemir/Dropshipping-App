@@ -79,7 +79,7 @@ public class SalesQuery {
 					purchaseCount = temp;
 				}
 			}
-    	System.out.println(temp_customer.getId() + " " + temp_customer.getName() + " " + temp_customer.getEmail() +  " " + temp_customer.getCountry() + " " + temp_customer.getAddress() + " -> " + purchaseCount + " purchases");
+    	System.out.println(temp_customer.toString() + " -> " + purchaseCount + " purchases");
     }
     
     public void getTotalProfit(){ // For Query-4: The total profit that is made from all sales.
