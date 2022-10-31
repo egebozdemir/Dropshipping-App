@@ -23,9 +23,6 @@ public class SalesQuery {
     	try {
 	    	customerArray = new Customer[FileIO.getCSVlineCount(FileIO.readCSV(PATH_TO_CUSTOMERS))];
 	    	customerArray = FileIO.addCustomersToArray(PATH_TO_CUSTOMERS);
-	        //S1Products = new Supplier(FileIO.addProductsToArray(PATH_TO_S1_PRODUCTS));
-	        //S2Products = new Supplier(FileIO.addProductsToArray(PATH_TO_S2_PRODUCTS));
-	        //S3Products = new Supplier(FileIO.addProductsToArray(PATH_TO_S3_PRODUCTS));
 	        totalSales2D = new SalesManagement(FileIO.addSalesToArray(PATH_TO_S1_SALES),FileIO.addSalesToArray(PATH_TO_S2_SALES),FileIO.addSalesToArray(PATH_TO_S3_SALES));
     	}
     	//Exception handling

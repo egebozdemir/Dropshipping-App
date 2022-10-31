@@ -2,8 +2,8 @@ import java.io.*;
 /*
  * AUTHORS:
  * @MERTCAN_TABAKOĞLU_280201048
- * @ESMA_İREM_TEK_280201046
  * @MEHMET_EGE_BOZDEMİR_293078025
+ * @ESMA_İREM_TEK_280201046
  * @KAĞAN_ASLANCAN_280201045
  * 
  * This is the program we develop as a solution regarding the scope of the written requirements shared for the homework 1.(check READ_ME.md)
