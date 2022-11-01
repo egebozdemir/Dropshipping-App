@@ -70,7 +70,7 @@ public class SalesManagement {
 	}
 	
 	public String getSelectedSalesToString(int selectSupplier , int selectSale) {
-		return "SalesManagement {sales=" + totalSales[selectSupplier][selectSale].toString() + "}";
+		return totalSales[selectSupplier][selectSale].toString();
 	}
 
 	public Sales getSelectedSales(int selectSupplier , int selectSale) {

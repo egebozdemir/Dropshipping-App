@@ -39,8 +39,6 @@ public class Supplier {
 	//To string override
 	@Override
 	public String toString() {
-		return "Supplier{" +
-				"product=" + arrayToString(productArr) +
-				'}';
+		return arrayToString(productArr);
 	}
 }
