@@ -15,12 +15,10 @@ public class Sales {
 	}
 
 	/*Full-arg constructor */
-	//we prefer passing string type attributes rather using objects but we add necessary methods (parse_into_object_methods) 
-  //to get the necessary object creation and initialisation by copying their values into copy objects to use
-	public Sales(String Id, String Customer, String Product, String SalesDate, double SalesPrice) throws IOException { 
-  //public Sales(String Id, Customer Customer, Product Product, String SalesDate, double SalesPrice) //option eleminated for decreasing the complexity by not storing class type variables frequently into the memory
+	//we prefer passing string type attributes rather using objects but we add necessary methods (parse_into_object_methods) to get the necessary object creation and initialisation by copying their values into copy objects to use
+	public Sales(String Id, String Customer, String Product, String SalesDate, double SalesPrice) throws IOException { //public Sales(String Id, Customer Customer, Product Product, String SalesDate, double SalesPrice)
 		id = Id;
-		customer = Query.Customer.parseCustomer(Customer); //customer = Customer; //tried and verified by smoke test case execution with required modification on FileIO methods to be modified as to return directly objects which has attributes as another object can be initialised with respecto the scope
+		customer = Query.Customer.parseCustomer(Customer); //customer = Customer;
 		product = Query.Product.parseProduct(Product); //product = Product;
 		salesDate = SalesDate;
 		salesPrice = product.getCalcSalePrice(); 
